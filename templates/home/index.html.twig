@@ -1,11 +1,11 @@
-<!doctype html>
-<html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <title>Wild Series</title>
-</head>
+{% extends 'base.html.twig' %}
+
+{% block title %}Wild Series{% endblock %}
+
+{% block body %}
 <body>
    <h1>{{ website }} home</h1>
    <h1>Bienvenue !</h1>
+<img src="{{ asset('build/images/img/logo.png') }}" alt="ACME logo">
 </body>
-</html>
+{% endblock %}
