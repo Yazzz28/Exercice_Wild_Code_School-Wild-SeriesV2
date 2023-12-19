@@ -35,4 +35,18 @@ class ProgramController extends AbstractController
             'program' => $program,
         ]);
     }
+
+    #[Route('/{programId}/season/{seasonId}', requirements: ['programId' => '\d+', 'seasonId' => '\d+'], methods: ['GET'], name: 'season_show')]
+    public function showSeason(int $programId, int $seasonId, ProgramRepository $programRepository): Response
+    {
+        $program = $programRepository->findOneBy(['id' => $programId]);
+        $seasonId = $programRepository->findOneBy(['id' => $seasonId]);
+        $season = $programRepository->getSeasons();
+
+        return $this->render('program/season_show.html.twig', [
+            'program' => $program,
+            'season' => $season,
+            'episodes' => $season->getEpisodes(),
+        ]);
+    }
 }
