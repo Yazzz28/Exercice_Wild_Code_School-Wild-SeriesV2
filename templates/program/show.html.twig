@@ -16,10 +16,22 @@
 	<h2>Les saisons</h2>
 	<ul>
 		{% for season in program.seasons %}
-			<li>Saison numero : <a href="{{ path('program_season_show', {program: program.id, season: season.id})}}">{{season.number}}</a></li>
+			<li>Saison numero :
+				<a href="{{ path('program_season_show', {program: program.id, season: season.id})}}">{{season.number}}</a>
+			</li>
+		{% endfor %}
+	</ul>
+	<strong>Acteurs :</strong>
+	<ul>
+		{% for actor in program.actors %}
+			<li><a href=" {{path('actor_show', {id: actor.id})}}">{{ actor.firstname }},
+				{{actor.lastname}}</a></li>
+		{% else %}
+			<li>Aucun acteur pour cette série</li>
 		{% endfor %}
 	</ul>
 	<a href="{{ path('program_index') }}">
 		Retour à la liste des programmes
 	</a>
+
 {% endblock %}
