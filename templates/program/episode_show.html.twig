@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Série #{{ program.id }}
+{% endblock %}
+
+{% block body %}
+	<h1>Episode #{{ episodes.id }} serie : {{program.title}}</h1>
+		{#<img src="{{ vich_uploader_asset(program) }}" alt="{{ program.title }}">#}
+		</div>
+			<h2>titre de l'episode :{{ episodes.title }}</h2>
+			<p>saison :{{ seasons.number }}</p>
+			<p>resumer :{{ episodes.synopsis }}</p>	
+{% endblock %}
